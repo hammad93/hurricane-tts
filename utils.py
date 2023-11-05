@@ -35,3 +35,40 @@ def tts_langs():
     tts_supported = all_supported.query('TTS.notna()')
     # supported_langs_out_cols specifies which columns should be output
     return tts_supported[config.supported_langs_out_cols]
+
+def transform_storm_data():
+    '''
+    Takes in the data from the API and transforms it.
+    '''
+    track = requests.get(config.api_url_track).json()
+    forecast = requests.get(config.api_url_forecast).json()
+
+    # create data structure to return the storms lat lons and whether
+    # it's history or forecast
+    results = {}
+
+    # merge data sources into one data structure
+    for record in track :
+        entry = {
+            'type' : 'history',
+            'lat' : record['lat'],
+            'lon' : record['lon'],
+            'time' : record['time'],
+            'wind_speed' : record['wind_speed'] # knots
+        }
+        if record['id'] not in results.keys() :
+            results[record['id']] = [entry]
+        elif len(results[record['id']]) < config.max_storm_history :
+            results[record['id']].append(entry)
+    for record in forecast :
+        entry = {
+            'type' : 'forecast',
+            'lat' : record['lat'],
+            'lon' : record['lon'],
+            'time' : record['time'],
+            'wind_speed' : record['wind_speed'] # knots
+        }
+        # there shouldn't be forecasts for a storm that's not there
+        results[record['id']].append(entry)
+    
+    return results
