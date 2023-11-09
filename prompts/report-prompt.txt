@@ -1,0 +1,3 @@
+Please create a weather report optimized for text to speech.
+The report should follow local scientific standards and provide storm forecast and details optimized for the understanding of the local populations.
+The report must be in the {lang} language. Please respond with just the report and nothing else.

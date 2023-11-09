@@ -13,9 +13,9 @@ def generate_prompts():
     storms = utils.transform_storm_data()
 
     # load prompts
-    with open('system-prompt.txt', 'r') as file:
+    with open('prompts/system-prompt.txt', 'r') as file:
         system_prompt = file.read()
-    with open('localization-prompt.txt', 'r') as file:
+    with open('prompts/localization-prompt.txt', 'r') as file:
         localization_prompt = file.read()
     
     # transform data into prompts
@@ -24,7 +24,7 @@ def generate_prompts():
 
     return {
         'system' : system,
-        'storms' : localizations
+        'storms' : localizations,
     }
 
 def chat(message, history=None, system=None):
@@ -57,7 +57,7 @@ def chat(message, history=None, system=None):
     # gets the API Key from environment variable AZURE_OPENAI_API_KEY
     # https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#rest-api-versioning
     # https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource
-    print(f"Please note that the AZURE_OPENAI_API_KEY must be set. Here are the constructed messages: {messages}")
+    print(f"Here are the constructed messages: {messages}")
     client = openai.AzureOpenAI(
         api_version="2023-07-01-preview",
         azure_endpoint="https://live.openai.azure.com/",
