@@ -31,6 +31,11 @@ class TextMapper(object):
         self._symbol_to_id = {s: i for i, s in enumerate(self.symbols)}
         self._id_to_symbol = {i: s for i, s in enumerate(self.symbols)}
 
+    def intersperse(lst, item):
+        # https://github.com/jaywalnut310/vits/blob/main/commons.py#L24
+        result = [item] * (len(lst) * 2 + 1)
+        result[1::2] = lst
+        return result
     def text_to_sequence(self, text, cleaner_names):
         '''Converts a string of text to a sequence of IDs corresponding to the symbols in the text.
         Args:
@@ -67,7 +72,7 @@ class TextMapper(object):
     def get_text(self, text, hps):
         text_norm = self.text_to_sequence(text, hps.data.text_cleaners)
         if hps.data.add_blank:
-            text_norm = commons.intersperse(text_norm, 0)
+            text_norm = self.intersperse(text_norm, 0)
         text_norm = torch.LongTensor(text_norm)
         return text_norm
 
