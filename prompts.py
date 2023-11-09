@@ -66,4 +66,4 @@ def chat(message, history=None, system=None):
     return client.chat.completions.create(
         model="live",
         messages = messages
-    )
+    ).choices[0].message.content

@@ -4,7 +4,6 @@ A repository hosting code to produce text to speech with deep learning and large
 # Install
 Linux, Windows, MacOS, Android
 
-
 1. Please install the latest Python 3 and Pip.
 2. Clone the repository and navigate into the directory.
 3. Set the `AZURE_OPENAI_API_KEY`.
@@ -13,3 +12,6 @@ Linux, Windows, MacOS, Android
 ```
 pip install -r requirements.txt
 ```
+
+It's also recommended to run the tests to make sure everything is working.
+If we execute `python test.py`, it will run the unit and integration tests.
