@@ -43,8 +43,8 @@ def chat(message, history=None, system=None):
         "content" : message
     }
 
-    if history != None :
-        messages = history + prompt
+    if history :
+        messages = history + [prompt]
     else :
         messages = [
             {
