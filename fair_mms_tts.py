@@ -31,7 +31,7 @@ class TextMapper(object):
         self._symbol_to_id = {s: i for i, s in enumerate(self.symbols)}
         self._id_to_symbol = {i: s for i, s in enumerate(self.symbols)}
 
-    def intersperse(lst, item):
+    def intersperse(self, lst, item):
         # https://github.com/jaywalnut310/vits/blob/main/commons.py#L24
         result = [item] * (len(lst) * 2 + 1)
         result[1::2] = lst
