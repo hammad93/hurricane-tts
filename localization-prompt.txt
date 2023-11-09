@@ -1,4 +1,4 @@
 These are the input storm records and forecasts.
-Each record has a lat and lon according to their geographic coordinates.
+Each record has a lat and lon according to their geographic coordinates and wind speed in knots.
 Please respond with the 3 most relevant languages exactly as they appear from the supported language list other than English each delimited by a comma.
-$storm
+{storm}
