@@ -44,7 +44,7 @@ def chat(message, history=None, system=None):
     }
 
     if history :
-        messages = history.extend(prompt)
+        messages = history.append(prompt)
     else :
         messages = [
             {
