@@ -15,3 +15,8 @@ pip install -r requirements.txt
 
 It's also recommended to run the tests to make sure everything is working.
 If we execute `python test.py`, it will run the unit and integration tests.
+
+# Quickstart
+When you have setup a compute environment with a GPU and access to a Jupyter
+Notebook, we can utilize `hurricane_tts.ipynb` to generate the audio in 
+production. It will produce examples, [click here for a previous output example](https://github.com/hammad93/hurricane-tts/issues/2#issuecomment-180639837). Note that this requires additional setup.
