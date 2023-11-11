@@ -1,5 +1,6 @@
 import redis
 import config
+import os
 
 def redis_client():
   '''
