@@ -1,6 +1,6 @@
 import unittest
 import prompts
-import utils
+import db
 
 class TestPrompts(unittest.TestCase):
     error_msg = "My function raised an exception {e}"
@@ -17,7 +17,7 @@ class TestPrompts(unittest.TestCase):
 
 class TestConnections(unittest.TestCase):
     def test_redis(self):
-        r = utils.redis_client()
+        r = db.redis_client()
         self.assertEqual(r.get('foo'), b'bar')
 
 # This allows the test suite to be run from the command line
