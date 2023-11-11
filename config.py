@@ -4,3 +4,5 @@ api_url_track = 'http://fluids.ai:1337/live-storms/'
 api_url_forecast = 'http://fluids.ai:1337/forecasts/'
 max_storm_history = 10
 default_system = "You are an AI assistant that helps people find information."
+redis_host = 'huraim.redis.cache.windows.net'
+redis_port = '6380'

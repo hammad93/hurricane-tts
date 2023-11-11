@@ -6,7 +6,7 @@ Linux, Windows, MacOS, Android
 
 1. Please install the latest Python 3 and Pip.
 2. Clone the repository and navigate into the directory.
-3. Set the `AZURE_OPENAI_API_KEY`.
+3. Set the `AZURE_OPENAI_API_KEY` and `AZURE_REDIS_KEY`.
 4. Open up a terminal with the latest Python and Pip in the path and enter in the following,
 
 ```

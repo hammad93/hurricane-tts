@@ -4,6 +4,8 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 from io import StringIO
+import redis
+import os
 
 def supported_langs_df(url):
     '''
@@ -98,3 +100,12 @@ def llm_response_transform(resp, supported_langs, num_langs = 3):
     if lang not in supported_langs:
       return False
   return langs
+
+def redis_client():
+   '''
+   Returns the client based on current configurations
+   '''
+   return redis.StrictRedis(host = config.redis_host,
+                            password = os.environ['AZURE_REDIS_KEY'],
+                            port = config.redis_port,
+                            ssl = True)

@@ -1,5 +1,6 @@
 import unittest
 import prompts
+import utils
 
 class TestPrompts(unittest.TestCase):
     error_msg = "My function raised an exception {e}"
@@ -13,6 +14,11 @@ class TestPrompts(unittest.TestCase):
             prompts.chat("test")
         except Exception as e:
             self.fail(self.error_msg.format(e=e))
+
+class TestConnections(unittest.TestCase):
+    def test_redis(self):
+        r = utils.redis_client()
+        self.assertEqual(r.get('foo'), b'bar')
 
 # This allows the test suite to be run from the command line
 if __name__ == '__main__':
