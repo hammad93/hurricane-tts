@@ -26,4 +26,5 @@ production. It will produce examples, [click here for a previous output example]
 ```bash
 cd docker
 docker build -t hurricane-tts --build-arg AZURE_OPENAI_API_KEY=🔑 --build-arg AZURE_REDIS_KEY=🔑 .
+docker run -it hurricane-tts
 ```
