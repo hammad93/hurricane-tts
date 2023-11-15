@@ -103,7 +103,7 @@ def preprocess_text(txt, text_mapper, hps, uroman_dir=None, lang=None):
 def download(lang, tgt_dir="./"):
   lang_fn, lang_dir = os.path.join(tgt_dir, lang+'.tar.gz'), os.path.join(tgt_dir, lang)
   cmd = ";".join([
-        f"wget -N https://dl.fbaipublicfiles.com/mms/tts/{lang}.tar.gz -O {lang_fn}",
+        f"wget -nc https://dl.fbaipublicfiles.com/mms/tts/{lang}.tar.gz -O {lang_fn}",
         f"tar zxvf {lang_fn}"
   ])
   print(f"Download model for language: {lang}")
