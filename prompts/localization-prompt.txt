@@ -1,4 +1,5 @@
-These are the input storm records and forecasts.
-Each record has a lat and lon according to their geographic coordinates and wind speed in knots.
-Please respond with the 3 most relevant languages exactly as they appear from the supported language list other than English each delimited by a comma.
+Provided below are the input storm records which include forecasts.
+Each record have geographic coordinates and wind speed in knots.
+Please respond with the 3 most geographically relevant languages other than English.
+The characters must match the strings in the supported language list. Delimit the response with a comma.
 {storm}
