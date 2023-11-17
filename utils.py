@@ -76,9 +76,9 @@ def transform_storm_data():
     
     return results
 
-def llm_response_transform(resp, supported_langs, num_langs = 3):
+def llm_response_transform(resp, supported_langs, num_langs = 2):
   '''
-  The response is supposed to be a list of size 3 delimited by a comma.
+  The response is supposed to be a list of size 2 delimited by a comma.
   This function takes in the raw text and returns the Python data structure.
 
   Input
