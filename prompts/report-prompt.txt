@@ -1,5 +1,5 @@
 Please create an optimized prompt to be utilized for massively multilingual text to speech.
 The prompt should avoid numerical values and must be optimized for the understanding of the local populations.
 The goal for the audio from the prompt is 60 seconds which can include historical information about similar previous storms.
-The prompt must be in the {lang} language. Reference the storm in the prompt by the sequential number in the ID.
+Please reference the storm as storm number {id}. The prompt must be in the {lang} language.
 Please respond with just the prompt and nothing else.
