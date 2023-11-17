@@ -1,5 +1,6 @@
 Provided below are the input storm records which include forecasts.
 Each record have geographic coordinates and wind speed in knots.
 Please respond with the 3 most geographically relevant languages other than English.
-The characters must match the strings in the supported language list. Delimit the response with a comma.
+The characters must match the strings in the supported language list.
+Provide only the list and delimit the response with a comma, like so: lang1, lang2, lang3
 {storm}
