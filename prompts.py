@@ -10,6 +10,7 @@ def unique_lang_list(col = 'Language Name'):
 def generate_prompts():
     # extract and transform data structures
     langs = unique_lang_list()
+    langs.remove('English')
     storms = utils.transform_storm_data()
 
     # load prompts
