@@ -92,12 +92,17 @@ def llm_response_transform(resp, supported_langs, num_langs = 3):
   list or False
     A list of size 3 or False if its invalid
   '''
-  # cleans string by removing spaces and .'s
-  langs = resp.strip().replace(" ","").replace(".","").split(',')
-  print(langs)
-  if len(langs) is not num_langs:
+  try: # see if it can be loaded like python or json
+      langs = json.loads(resp)
+      print(langs)
+  except Exception as e:
+      print(e)
+      # cleans string by removing spaces and .'s
+      langs = resp.strip().replace(" ","").replace(".","").split(',')
+      print(langs)
+  if len(langs) is not num_langs: # e.g. needs to be 3 languages
     return False
-  for lang in langs:
+  for lang in langs: # check if its supported
     if lang not in supported_langs:
       return False
   return langs
