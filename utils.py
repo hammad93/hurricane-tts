@@ -76,9 +76,9 @@ def transform_storm_data():
     
     return results
 
-def llm_response_transform(resp, supported_langs, num_langs = 2):
+def llm_response_transform(resp, supported_langs, num_langs = 1):
   '''
-  The response is supposed to be a list of size 2 delimited by a comma.
+  The response is supposed to be a list at least 1 delimited by a comma.
   This function takes in the raw text and returns the Python data structure.
 
   Input
@@ -100,7 +100,7 @@ def llm_response_transform(resp, supported_langs, num_langs = 2):
       # cleans string by removing spaces and .'s
       langs = resp.strip().replace(" ","").replace(".","").split(',')
       print(langs)
-  if len(langs) is not num_langs: # e.g. needs to be 3 languages
+  if len(langs) <= num_langs: # e.g. needs to be 3 languages
       return False
   for lang in langs: # check if its supported
       if lang not in supported_langs:
