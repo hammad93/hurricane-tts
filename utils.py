@@ -77,33 +77,35 @@ def transform_storm_data():
     return results
 
 def llm_response_transform(resp, supported_langs, num_langs = 2):
-  '''
-  The response is supposed to be a list at least 2 delimited by a comma.
-  This function takes in the raw text and returns the Python data structure.
-
-  Input
-  -----
-  resp string
+    '''
+    The response is supposed to be a list at least 2 delimited by a comma.
+    This function takes in the raw text and returns the Python data structure.
+    
+    Input
+    -----
+    resp string
     The response text from the large language model, e.g. ChatGPT
-  supported_langs list[string]
+    supported_langs list[string]
     Each item in the response list has to be also in this list
-  Output
-  -----
-  list or False
+    Output
+    -----
+    list or False
     A list of size 3 or False if its invalid
-  '''
-  try: # see if it can be loaded like python or json
-      langs = eval(resp)
-      print(langs)
-  except Exception as e:
-      print(e)
-      # cleans string by removing spaces and .'s
-      langs = resp.strip().replace(" ","").replace(".","").split(',')
-      print(langs)
-  if len(langs) <= num_langs: # e.g. needs to be 3 languages
-      return False
-  for lang in langs: # check if its supported
-      if lang not in supported_langs:
+    '''
+    try: # see if it can be loaded like python or json
+        langs = eval(resp)
+        print(f'eval: {langs}')
+    except Exception as e:
+        print(e)
+        # tries to cleans string by removing spaces and .'s
+        langs = resp.strip().replace(" ","").replace(".","").split(',')
+        print(f'NLP list: {langs}')
+    supported = []
+    for lang in langs: # check if its supported
+        if lang in supported_langs:
+          supported.append(lang)
+        else:
           print(f'{lang} is not in the supported language list.')
-          return False
-  return langs
+    if len(supported) < num_langs: # e.g. needs to be 3 languages
+        return False
+    return supported
