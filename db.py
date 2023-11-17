@@ -21,7 +21,7 @@ def upload_audio(path):
   r = redis_client()
   r.set(filename, data)
 
-def upload_latest_audios(paths):
+def upload_latest_audios(paths, metadata):
   '''
   Given the paths of the audio files, we will create other data structures
   '''
@@ -32,7 +32,8 @@ def upload_latest_audios(paths):
      'filename': path.split('/')[-1],
      'storm': path.split('/')[-1][:-4].split('_')[0],
      'timestamp': path.split('/')[-1][:-4].split('_')[1],
-     'language': path.split('/')[-1][:-4].split('_')[2]
+     'language': path.split('/')[-1][:-4].split('_')[2],
+     'metadata': metadata[path]
   } for path in paths]
   r.set(config.redis_latest_audio_key, json.dumps(metadata))
 
