@@ -1,4 +1,4 @@
-Provided below are the input storm records with geographic coordinates and wind speed in knots.
+Provided below are the input storm records with geographic coordinates with "lat" and "lon" and wind speed in knots.
 Please respond with the 3 most geographically relevant languages that must be from the supported language list.
-Please provide the languages in a list of strings such that it can be interpreted by Python's eval() and can be found in the supported language list.
+Please provide the languages delimited by a comma. For example: lang1, lang2, lang3
 {storm}
