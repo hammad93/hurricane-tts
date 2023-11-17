@@ -101,9 +101,9 @@ def llm_response_transform(resp, supported_langs, num_langs = 3):
       langs = resp.strip().replace(" ","").replace(".","").split(',')
       print(langs)
   if len(langs) is not num_langs: # e.g. needs to be 3 languages
-    return False
-  for lang in langs: # check if its supported
-    if lang not in supported_langs:
-        print(f'{lang} is not in the supported language list.')
       return False
+  for lang in langs: # check if its supported
+      if lang not in supported_langs:
+          print(f'{lang} is not in the supported language list.')
+          return False
   return langs
