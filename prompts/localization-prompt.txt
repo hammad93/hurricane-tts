@@ -1,4 +1,4 @@
-Provided are the tropical storm records with geographic coordinates with "lat", "lon" and wind speed in knots.
-Please respond with at least 1 of the supported languages by utilizing language geography and the storm's latitude and longitude.
+Provided are the tropical storm records with geographic coordinates and wind speed in knots.
+Please respond with at least 2 of the supported languages by utilizing language geography and the storm's latitude and longitude.
 The response must be a Python list meant to be input as a string into eval(). Please make sure the languages are in the supported list.
 {storm}
