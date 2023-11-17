@@ -7,6 +7,7 @@ from io import StringIO
 import redis
 import os
 import json
+import ast
 
 def supported_langs_df(url):
     '''
@@ -93,7 +94,7 @@ def llm_response_transform(resp, supported_langs, num_langs = 3):
     A list of size 3 or False if its invalid
   '''
   try: # see if it can be loaded like python or json
-      langs = json.loads(resp)
+      langs = ast.literal_eval(resp)
       print(langs)
   except Exception as e:
       print(e)
