@@ -22,7 +22,7 @@ def upload_file_s3(file_name, bucket, object_name=None):
     try:
         with open(file_name, "rb") as f:
            response = s3_client.upload_fileobj(f, bucket, file_name.split('/')[-1])
-           print(response.content)
+           print(f'Uploading {file_name} done. Response: {response}')
     except Exception as e:
         print(e)
         return False
