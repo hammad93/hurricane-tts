@@ -20,3 +20,11 @@ If we execute `python test.py`, it will run the unit and integration tests.
 When you have setup a compute environment with a GPU and access to a Jupyter
 Notebook, we can utilize `hurricane_tts.ipynb` to generate the audio in 
 production. It will produce examples, [click here for a previous output example](https://github.com/hammad93/hurricane-tts/issues/2#issuecomment-180639837). Note that this requires additional setup.
+
+## Docker
+
+```bash
+cd docker
+docker build -t hurricane-tts --build-arg AZURE_OPENAI_API_KEY=🔑 --build-arg AZURE_REDIS_KEY=🔑 .
+docker run -it hurricane-tts
+```
