@@ -21,7 +21,7 @@ def upload_file_s3(file_name, bucket, object_name=None):
     s3_client = boto3.client('s3')
     try:
         with open(file_name, "rb") as f:
-           response = s3_client.upload_obj(f, bucket, file_name.split('/')[-1])
+           response = s3_client.upload_fileobj(f, bucket, file_name.split('/')[-1])
            print(response.content)
     except Exception as e:
         print(e)
