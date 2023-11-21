@@ -1,16 +1,20 @@
 # hurricane-tts
-A repository hosting code to produce text to speech with deep learning and large language models on the topic of tropical storms. The notebook is deployed part of hourly reports, please reference `hurricane-deploy` for details. The deployment is designed to be serverless through container registries and constainer instances or services. 
+A repository hosting code to produce text to speech with deep learning and large language models on the topic of tropical storms. The notebook is deployed part of hourly reports, please reference `hurricane-deploy` for details.
 
-# Install (Linux)
-Please note that this repository may need a Redis database setup with the appropriate connection parameters. We can open up the notebook and go from there or we can utilize a local containerized environment.
+# Install
+Linux, Windows, MacOS, Android
 
-## Docker
+1. Please install the latest Python 3 and Pip.
+2. Clone the repository and navigate into the directory.
+3. Set the `AZURE_OPENAI_API_KEY` and `AZURE_REDIS_KEY`.
+4. Open up a terminal with the latest Python and Pip in the path and enter in the following,
 
-```bash
-cd docker
-docker build -t hurricane-tts --build-arg AZURE_OPENAI_API_KEY=🔑 --build-arg AZURE_REDIS_KEY=🔑 .
-docker run -it hurricane-tts
 ```
+pip install -r requirements.txt
+```
+
+It's also recommended to run the tests to make sure everything is working.
+If we execute `python test.py`, it will run the unit and integration tests.
 
 # Quickstart
 When you have setup a compute environment with a GPU and access to a Jupyter

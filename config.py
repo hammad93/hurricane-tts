@@ -7,3 +7,4 @@ default_system = "You are an AI assistant that helps people find information."
 redis_host = 'huraim.redis.cache.windows.net'
 redis_port = '6380'
 redis_latest_audio_key = 'latest_audio_metadata'
+s3_audio_bucket = 'hurricane-tts'
